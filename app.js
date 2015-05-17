@@ -15,24 +15,16 @@
       return this.tab === checkTab;
     };
   });
-/*
-  var items = [
-    {
-      name: faker.lorem.words()[1],
-      price: 2,
-      description: faker.lorem.sentence(),
-      specifications: faker.lorem.sentence(),
-      reviews: 'None yet',
-    },
-    {
-      name: 'foo',
-      price: 13.42,
-      description: '...',
-      specifications: 'None yet',
-      reviews: 'None yet',
-    },
-  ];
-*/
+
+  app.controller("ReviewController", function(){
+    this.review = {};
+
+    this.addReview = function(product) {
+      product.reviews.push(this.review);
+      this.review = {};
+    };
+  });
+
   var items = []
 
   for (var i = 0; i < 10; i++) {
