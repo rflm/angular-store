@@ -2,6 +2,7 @@
 <html ng-app="store">
   <head>
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script src = "faker.js" type = "text/javascript"></script>
   </head>
   <body ng-controller="StoreController as store">
     <ul class="list-group-item">
@@ -35,7 +36,11 @@
           </div>
           <div class="panel" ng-show="panel.isSelected(3)">
             <h4>Reviews</h4>
-            <p>{{product.reviews}}</p>
+            <blockquote ng-repeat="review in product.reviews">
+              <b>Stars: {{review.stars}}</b>
+              {{review.body}}
+              <cite>by: {{review.author}}</cite>
+            </blockquote>
           </div>
         </section>
 
