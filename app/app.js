@@ -4,7 +4,7 @@
   app.controller('StoreController', function(){
     this.products = items;
   });
-
+/*
   app.controller("PanelController", function(){
     this.tab = 1;
 
@@ -15,7 +15,7 @@
       return this.tab === checkTab;
     };
   });
-
+*/
   app.controller("ReviewController", function(){
     this.review = {};
 
@@ -29,6 +29,24 @@
     return {
       restrict: 'E',
       templateUrl: 'product-title.html'
+    };
+  });
+
+  app.directive('productPanels', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'product-panels.html',
+      controller:function(){
+        this.tab = 1;
+
+        this.selectTab = function(setTab) {
+          this.tab = setTab;
+        };
+        this.isSelected = function(checkTab) {
+          return this.tab === checkTab;
+        };
+      },
+      controllerAs: 'panels'
     };
   });
 
